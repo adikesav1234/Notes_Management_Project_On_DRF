@@ -1,0 +1,99 @@
+###
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{
+    "username":"salvin",
+    "email":"salvin@gmail.com",
+    "password":"salvin@123"
+}
+
+###
+POST http://127.0.0.1:8000/api/login/
+Content-Type: application/json
+
+{
+    "username":"Nikheth",
+    "password":"nikheth@123"
+}
+
+###
+GET http://127.0.0.1:8000/api/notes/
+Accept: application/json
+Authorization: Token cfb25ac7ca0a4cd6a9b031812abfbc42d4662521
+
+###
+POST http://127.0.0.1:8000/api/notes/
+Content-Type: application/json
+Authorization: Token cfb25ac7ca0a4cd6a9b031812abfbc42d4662521
+
+{
+    "title":"Introduction to python",
+    "description":"Python is an object oriented programming language"
+}
+#-------------------------------------------------------------------------
+
+###
+GET http://127.0.0.1:8000/notes/1/
+Accept: application/json
+Authorization: Token cfb25ac7ca0a4cd6a9b031812abfbc42d4662521
+
+###
+PUT http://127.0.0.1:8000/notes/1/
+Content-Type: application/json
+Authorization: Token cfb25ac7ca0a4cd6a9b031812abfbc42d4662521
+
+{
+"title": "Updated DRF Learning",
+"description": "Practicing PUT method in DRF"
+}
+
+###
+DELETE http://127.0.0.1:8000/notes/3/
+Authorization: Token cfb25ac7ca0a4cd6a9b031812abfbc42d4662521
+
+#-----JWT--Login--------------------------
+###
+POST http://127.0.0.1:8000/api/jwt_login/
+Content-Type: application/json
+
+{
+    "username":"Nikheth",
+    "password":"nikheth@123"
+}
+
+#------JWT-LOGOUT------------------------
+###
+POST http://127.0.0.1:8000/jwt_logout/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1Mzc4MTI2LCJpYXQiOjE3OTUzNzc4MjYsImp0aSI6IjNhMzQ2NDU0MjI0ZDRmYzZhNjE1MTg0MmQyZjA5M2ViIiwidXNlcl9pZCI6IjUifQ.reGl5TkoGBEUudpweEY4yBcu5qp7vNG1WDnmiX7zjCw
+
+{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTQ2NDIyNiwiaWF0IjoxNzk1Mzc3ODI2LCJqdGkiOiJkOTdlM2VhZTViOWY0YTA0YTliZDE0ZjI5OTkyNzYyNCIsInVzZXJfaWQiOiI1In0.4dWu1cMWU5LyOY6CS8zAoyCoeq_wsL6zvAO3CGkvR3Q"
+}
+
+###
+GET http://127.0.0.1:8000/api/tasks/
+Accept : application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTg4MzM4LCJpYXQiOjE3OTUxODgwMzgsImp0aSI6IjEyOTg1ZmE1ZWQ4ZDRkOWZhMzMyNjU5MzdjOTY5YTNmIiwidXNlcl9pZCI6IjUifQ.ZBzHo6zCDN73JhqPmdhOViG4589523J1eGIMMAghAew
+
+
+###
+POST http://127.0.0.1:8000/api/tasks/
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1MTg4MzM4LCJpYXQiOjE3OTUxODgwMzgsImp0aSI6IjEyOTg1ZmE1ZWQ4ZDRkOWZhMzMyNjU5MzdjOTY5YTNmIiwidXNlcl9pZCI6IjUifQ.ZBzHo6zCDN73JhqPmdhOViG4589523J1eGIMMAghAew
+
+{
+    "title" : "Prime Number",
+    "description" : "Python program to find prime numbers",
+    "due_date" : "2026-11-20"
+}
+
+###
+POST http://127.0.0.1:8000/refresh/
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk1Mzc4MzkwLCJpYXQiOjE3OTUzNzgwOTAsImp0aSI6ImQ3N2FmNzg5Nzk3NTQwNWRiZmJmMDE5MjdjNjZlNGE4IiwidXNlcl9pZCI6IjEifQ.QOSVRzCQdRpg0sm5KGqzNLJhbTo0u_XGEvycve_6V5s
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5NTQ2NDQ5MCwiaWF0IjoxNzk1Mzc4MDkwLCJqdGkiOiI3ZDM3MjYyZGE0Njk0NmY5YWE2OWVlOGMwZWZhZmViOSIsInVzZXJfaWQiOiIxIn0.E5r42I6sKSSkrx6sEMjqn2mhZxAj8T4kjatEkgWyt7o"
+}
